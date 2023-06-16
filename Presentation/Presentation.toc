@@ -1,0 +1,5 @@
+\beamer@sectionintoc {1}{Relevanz}{3}{0}{1}
+\beamer@sectionintoc {2}{Planare Graphen}{4}{0}{2}
+\beamer@subsectionintoc {2}{1}{Einführung}{4}{0}{2}
+\beamer@subsectionintoc {2}{2}{Exkurs: Minore}{6}{0}{2}
+\beamer@subsectionintoc {2}{3}{Wichtige Sätze}{17}{0}{2}
