@@ -31,13 +31,13 @@ ohne dass sich Kanten kreuzen. Im weiteren wird auch ein $\mathcal{O}(n)$ Laufze
 
 \pagenumbering{arabic}
 \section{Motivation}
-Die Klasse der Planaren Graphen ist sowol für die innermathematische Untersuchung von Graphen, als auch zur Modelierung
+Die Klasse der Planaren Graphen ist sowol für die mathematische Untersuchung von Graphen, als auch zur Modelierung
 praktischer Netzwerke, wie zum Beispiel Straßennetze,Platinenschaltkreise oder Landkarten wichtig. So dient die Planarität von Graphen als 
 Bedingung für die Funktionalität und/oder Effizienz einiger Algorithmen. Zu diesen zählt zum Beispiel der Algorithmus zur 
 Berechnung einer  4-Färbung in polinomieller Zeit.
 \\
 \\
-Die Frage nach einer Planaren Einbettung ist nun eine natürliche Frage. Sie ist zum Beispiel notwendig um zum Beispiel ein kurzschlussfreien Platinenschaltkreise zu erstellen.
+Die Frage nach einer Planaren Einbettung ist nun eine natürliche Frage. Sie ist zum Beispiel notwendig um ein kurzschlussfreien Platinenschaltkreise zu erstellen.
 
 \section{Einführung}
 %planar hervorheben
@@ -46,8 +46,8 @@ Die Frage nach einer Planaren Einbettung ist nun eine natürliche Frage. Sie ist
     Kanten nicht schneiden.
 \end{definition}
 Planare Graphen sind unter anderem durch die sehr graphische Natur ihrere Definition, eine Graphklasse, die schon sehr
-lange untersucht wird. Um ein besseres Verständnis für die Graphklasse zu entwickeln wollen wir uns nun die Abbildungen
-aus Fig. 1 betrachten
+lange untersucht wird. Um ein besseres Verständnis für die Graphklasse zu entwickeln wollen wir nun die Abbildungen
+aus Fig. 1 betrachten.
 
 \begin{figure}
     \begin{subfigure}{.33\textwidth}
@@ -107,7 +107,7 @@ aus Fig. 1 betrachten
         \caption{}
     \end{subfigure}
     \caption{Der $ K_{3,3} $ (a) ist nicht planar, der $ K_4 $ (b) jedoch schon, lässt sich aber trozdem mit 
-    Kantenüberschneidung zeichnen (c)}
+    Kantenüberschneidung zeichnen (c).}
 \end{figure}
 
 
@@ -124,12 +124,12 @@ Graph Planar ist, bedarf es einem kleinem Exkurs.
 \section{Minore}
 \begin{definition}[Teilgraph]
     Ein Graph $G' = (V', E') $ heißt Teilgraph von $G = (V, E)$, wenn gilt:
-    \[V' \subset V \land \forall e =(a, b) \in E \;mit\;  a,b \in V' \; gilt \; e \in E'\]
+    \[V' \subset V \land \forall e =(a, b) \in E \;mit\;  a,b \in V' \; gilt \; e \in E'.\]
 \end{definition}
 Ein Teilgraph $G'$ ist also ein Graph, der aus einem Teil der Knoten von G unduziert wird. 
 \begin{definition}[Kantenkontraktion]
     Gegeben ein Graph $G = (V,E)$ und eine Kante $ e = {v, w} \in E $, ist das Resultat der Kontraktion von e, der Graph $G' = (V', E')$ mit
-    $V' = (V \setminus e) \cup \{n \}$ und $E' = (E \setminus \{v \in e \lor w \in e  \mid e \in E \}) \cup \{ \{n, z\} \mid z,v \in e \in E \lor z,w \in e \in E\}$
+    $V' = (V \setminus e) \cup \{n \}$ und $E' = (E \setminus \{v \in e \lor w \in e  \mid e \in E \}) \cup \{ \{n, z\} \mid z,v \in e \in E \lor z,w \in e \in E\}$.
 \end{definition}
 Die Kontraktions-Operation soll im weiteren betrachtet werden. Schauen wir uns hierzu Abbildung 2 an.
 
@@ -202,7 +202,7 @@ Die Kontraktions-Operation soll im weiteren betrachtet werden. Schauen wir uns h
             \draw [green edge] (v6) edge (vn) {};
         \end{tikzpicture}
     \end{subfigure}
-    \caption{Kantenkontaktion an einem Beispiel}
+    \caption{Kantenkontraktion an einem Beispiel.}
 \end{figure}
 
 Hier sehen wir wie einen Kantenkontraktion funktioniert. Und zwar verschmiltz man die beiden, durch die Kante 
@@ -256,7 +256,7 @@ Für Planare Graphen gibt es zwei Wichtige Sätze, die wir betrachten wollen.
     Für alle zusammenhängende Planare Graphen mit $|V|$ Knoten, $|E|$ Kanten und $|F|$ Flächen gilt:\\
     \[ |V|-|E|+|F|=2 \Leftrightarrow |E| \leq 3|V| - 6 \land |F| \leq 2|V| - 4 \]
 \end{theorem}
-Beachte das mit Flächen, die von Kanten eingeschlossennen Flächen, plus die sogenanten außere Fläsche gemeint ist.
+Beachte das mit Flächen, die von Kanten eingeschlossennen Flächen, plus die sogenanten außere Fläche gemeint ist.
 Wie viele es von diesen gibt ist keineswegs einfach zu berechnen, daher wird meisst nur der erste Teil der Umformung
 ($|E| \leq 3|V| - 6$), als notwendige Bediengung für Planarität, verwendet.
 
@@ -265,7 +265,7 @@ Wie viele es von diesen gibt ist keineswegs einfach zu berechnen, daher wird mei
 \end{theorem}
 Der Satz von Kuratowski liefert anders als der Eulerscher Polyedersatz eine tatsächliche Grundlage zu Ideentiefizierung
 von nicht planaren Graphen. Weiter dient er einiegen Algorithmen, so auch dem der im weiteren Vorgestellt wird als Teil des
-Richtigkeitsbeweises
+Korrektheitsbeweises.
 \FloatBarrier
 \begin{figure}
 
@@ -313,7 +313,7 @@ Richtigkeitsbeweises
         \end{tikzpicture}
         \caption{$K_5$}
     \end{subfigure}
-    \caption{Kuratowski Minore}
+    \caption{Kuratowski Minore.}
 \end{figure}
 \FloatBarrier
 \section{Der Einbettungsalgorithmus}
@@ -323,18 +323,20 @@ Richtigkeitsbeweises
     
     \subsection{Bikomponenten und Seperatoren}
     Ein wichtiger Teil des Algorithmus sind Bikomponenten. Eine Bikomponente ist ein zusammenhängender maximaler Teilgraph G' von G, ohne Separatoren.
-    Ein Separator ist ein Knoten, der bei Entfernung, dazu führen würde, dass der Graph nicht mehr zusammenhängend ist. Bikomponenten sind wichtig, da gilt für planare Graphen gilt:
+    Ein Separator ist ein Knoten, der bei Entfernung, dazu führen würde, dass der Graph nicht mehr zusammenhängend ist.
 
-    \begin{lemma}
-        Ein Graph ist genau dann planar, wenn seine Bikomponenten planar sind
-    \end{lemma}
-    \begin{definition}[Bikomponente]
-        Ein  maximaler Teilgraph G' von G ist einen heißt Bikomponente von G, wenn G' keine Separatoren enthält
-    \end{definition}
+    
     \begin{definition}[Separator]
         Gegeben ein Graph $G=(V,E)$ heißt ein Knoten $u \in V$ Separator, wenn für alle Pfade $p = v \xRightarrow{*} w$ mit $v,w \in V$
-        gilt: $u \in p$
+        gilt: $u \in p$.
     \end{definition}
+    \begin{definition}[Bikomponente]
+        Ein  maximaler Teilgraph G' von G heißt Bikomponente von G, wenn G' keine Separatoren enthält.
+    \end{definition}
+    \begin{lemma}
+        Ein Graph ist genau dann planar, wenn seine Bikomponenten planar sind.
+    \end{lemma}
+    
     Dieses Lemma bedeutet, dass der Algorithmus, beim Einbetten einer Kante, nicht den gesamten Graphen G bezüglich potenziellen Kantenüberschneidungen 
     betrachten muss, sondern nur die Bikomponenten, die durch das Hinzufügen, der Kante verändert werden.
 
@@ -344,35 +346,40 @@ Richtigkeitsbeweises
     Den Spanbaum von G und fügen danach die Kanten die nicht wärend des DFS durchlaufen wurden, als BackEdges in den PalmTree ein. 
 
     \subsection{Der Algortihmus}
+    Ein wichtiger Schritt, der vor dem Algorithmus, durchgeführt werden muss, 
+    ist die Berechnung eines Palmtrees von G. Hierzu berechnen wir zuerst per DepthFirstSearch 
+    den Spanbaum von G und fügen danach die Kanten die nicht wärend des DFS durchlaufen wurden, als BackEdges in den PalmTree ein. 
+
     Wir können nun damit beginnen den Graphen einzubetten. Wir beginnen, indem wir die Kanten (v,w) des Spannbaums jeweils als eigene Bikomponente einbetten.
-    Dabei heißt die Bikomponente aus (u,v) besteht, wobei u der Spannbaumelternknoten von v ist, Elternbikomponente der Bikomponente die aus der Kante (v,w) besteht.
-    Andersherum heißt die Bikomponente aus (v,w) Kindbikomponente, der Bikomponente aus (u,v). Um nun die Kanten hienzuzufügen, betrachten wir die Knoten in inverser DFI Ordnung und versuchen Kanten (a,b) die den Betrachteten Knoten b mit einem DFS Nochkommen a verbinden, einzubetten. Dabei müssen wir jedoch externaly activ Knoten beachten.
+    Dabei heißt die Bikomponente die aus (u,v) besteht, wobei u der Spannbaumelternknoten von v ist, Elternbikomponente der Bikomponente die aus der Kante (v,w) besteht.
+    Andersherum heißt die Bikomponente aus (v,w) Kindbikomponente, der Bikomponente aus (u,v). Um nun die BackEdges hienzuzufügen, betrachten wir die Knoten in inverser DFI Ordnung und versuchen Kanten (a,b) die den Betrachteten 
+    Knoten b mit einem DFS Nochkommen a verbinden, einzubetten. Dabei müssen wir jedoch Externaly Activ Knoten beachten.
     \begin{definition}[Externaly Activ]
         Ein Knoten w aus Bikomponente B, der DFS Nachkomme des zur Zeit bearbeiteten Knotens v ist heißt externaly activ,  
-        wenn es einen Pfad aus einer back edge und potentiel mehreren Kanten, die nicht in B sind gibt, der zu einem Vorfahren von v führt.
+        wenn es einen Pfad aus einer BackEdge und potentiel mehreren Kanten, die nicht in B sind gibt, der zu einem Vorfahren von v führt.
         \\
         Eine Bikomponente heißt externaly activ, wenn sie einen Knoten enthält, der externaly activ ist
     \end{definition}
-    Externaly Aktive sind also all jene Knoten, die später noch in einer Einbettung involviert sein werden. Folglich, nach der Idee des Algorithmus, dürfen
-    wir Kanten nur dan hinzufügen, wenn dadurch kein externaly activ Knoten in eine innere Fläche geraten. Dies ereicht man, indem man, liegt z.B. ein externaly activ
+    Externaly Active sind also all jene Knoten, die später noch in einer Einbettung involviert sein werden. Folglich, nach der Idee des Algorithmus, dürfen
+    wir Kanten nur dan hinzufügen, wenn dadurch kein externaly activ Knoten in eine innere Fläche geraten. Dies ereicht man, indem man, bei zum Beispiel einem Externaly Activ
     Knoten auf der rechten Seite der äußeren Fläche, die Kante in die linke Seite einbettet.
     \\
     \\
     Da wir nun wissen, bei welchen Knoten wir mit vorsicht vorgehen müssen, können wir uns nun den restlichen Teil des Algorithmus angucken. Wir fahren fort, indem wir für jede hinzuzufügende Kante
-    (a,b) von a ausgehend einen Pfad, in dem teils eingebtteten Graphen nach b suchen. Hierbei ist es möglich aus der Wurzel eine Bikomponente (dem Knoten, mit dem geringsten DFI) in die
-    zugehörige Elternbikomponente zu treten. Passiert dies, heißt die Bikomponente aus der man kommt Relevant und wird daher im späteren betrachtet. Entlang des berechneten Pfades werden wir die Kante später einbetten. Die Knoten und Kanten diese Pfades, bis auf maximal die Endpunkte, liegen also nach dem Einbetten der Kante in einer inneren Fläche.
+    (a,b) von a ausgehend einen Pfad, in dem teils eingebtteten Graphen nach b suchen. Hierbei ist es aus der Wurzel einer Bikomponente (dem Knoten, mit dem geringsten DFI) die
+    zugehörige Elternbikomponente zu betreten. Passiert dies, heißt die Bikomponente aus der man kommt Relevant und wird daher im späteren betrachtet. Entlang des berechneten Pfades werden wir die Kante später einbetten. Die Knoten und Kanten diese Pfades, bis auf maximal die Endpunkte, liegen also nach dem Einbetten der Kante in einer inneren Fläche.
     Daher ergeben sich einige Punkte die es beim suchen eines Pfades zu beachten gilt:
     \begin{enumerate}
-        \item Externaly activ Knoten dürfen nicht traversiert werden
-        \item Wird eine Wurzel aus zwei externaly activ Bikomponenten, oder aus zwei Richtungen beschritten,müssen zwei Pfade über die außenliegenden Knoten gefunden werden
-        \item Eine externaly activ Wurzel, die nicht durch die Bikomp aus der man kommt externaly activ ist, darf nur von einer Richtung aus beschritten werden
+        \item Externaly activ Knoten dürfen nicht traversiert werden.
+        \item Wird eine Wurzel aus zwei externaly activ Bikomponenten, oder aus zwei Richtungen beschritten,müssen zwei Pfade über die außenliegenden Knoten gefunden werden.
+        \item Eine externaly activ Wurzel, die nicht durch die Bikomp aus der man kommt externaly activ ist, darf nur von einer Richtung aus beschritten werden.
     \end{enumerate}
 
     Nachdem wir dies für alle hinzuzufügenden Kanten gemacht haben, betrachten wir nun den Graphen, der durch die berechneten Pfade induziert wird. Auf diesen wenden wir nun wieder DepthFirstSearch an, bei dem betrachteten Knoten beginnend, mit folgendem Zusatz:
     \begin{enumerate}
-        \item Füge zuerst die Kante zu einbettung hinzu, die an dem Knoten anliegt, indem du gerade bist
-        \item Gibt es eine relevante Bikomponte,ohne externaly activ Knoten von der der momentane Knoten die Wurzel ist, schreite in diese Bikomponente hinein
-        \item Gibt es eine relevante Bikomponte,mit außen externaly activ von der der momentane Knoten die Wurzel ist, schreite in diese Bikomponente hinein
+        \item Füge zuerst die Kante zu einbettung hinzu, die an dem Knoten anliegt, indem du gerade bist.
+        \item Gibt es eine relevante Bikomponte,ohne externaly activ Knoten von der der momentane Knoten die Wurzel ist, schreite in diese Bikomponente hinein.
+        \item Gibt es eine relevante Bikomponte,mit außen externaly activ von der der momentane Knoten die Wurzel ist, schreite in diese Bikomponente hinein.
 
     \end{enumerate}
 

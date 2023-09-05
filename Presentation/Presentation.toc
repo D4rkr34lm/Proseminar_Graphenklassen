@@ -1,12 +1,7 @@
 \babel@toc {ngerman}{}\relax 
 \beamer@sectionintoc {1}{Relevanz}{3}{0}{1}
-\beamer@sectionintoc {2}{Planare Graphen}{4}{0}{2}
-\beamer@subsectionintoc {2}{1}{Einführung}{4}{0}{2}
-\beamer@subsectionintoc {2}{2}{Minore}{5}{0}{2}
-\beamer@subsectionintoc {2}{3}{Wichtige Sätze}{15}{0}{2}
-\beamer@sectionintoc {3}{Der Algorithmus}{19}{0}{3}
-\beamer@subsectionintoc {3}{1}{Komponente, Separator, Bikomponente}{19}{0}{3}
-\beamer@subsectionintoc {3}{2}{Palmtree}{29}{0}{3}
-\beamer@subsectionintoc {3}{3}{Außen Aktive Knoten}{43}{0}{3}
-\beamer@subsectionintoc {3}{4}{Die Datenstruktur}{55}{0}{3}
-\beamer@subsectionintoc {3}{5}{WalkUp, WalkDown}{66}{0}{3}
+\beamer@sectionintoc {2}{Einfürung}{4}{0}{2}
+\beamer@sectionintoc {3}{Minore}{5}{0}{3}
+\beamer@sectionintoc {4}{Wichtige Sätze}{15}{0}{4}
+\beamer@sectionintoc {5}{Komponenten, Separatoren und Bikomponenten}{22}{0}{5}
+\beamer@sectionintoc {6}{Der Einbettungsalgorithmus}{31}{0}{6}

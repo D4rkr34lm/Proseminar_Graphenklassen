@@ -11,9 +11,9 @@
 \usetikzlibrary{shapes,snakes}
 
 \author{Manuel Frohn}
-\title{Planare Graphen - Coloring}
+\title{Planare Graphen - Planare Einbettung}
 \institute{RWTH Aachen University, Aachen, Germany}
-\date{?}
+\date{28.08.2023}
 
 \begin{document}
     %1
@@ -28,7 +28,6 @@
     \end{frame}
 
     \section{Relevanz}
-
     %3
     \begin{frame}
         \frametitle{Relevanz}
@@ -39,10 +38,10 @@
         \end{enumerate}
     \end{frame}
 
-    \section{Planare Graphen}
-    \subsection{Einführung}
+
 
     %4
+    \section{Einfürung}
     \begin{frame}
         \frametitle{Planare Graphen}
         \begin{definition}
@@ -110,7 +109,7 @@
         \end{figure}
     \end{frame}
 
-    \subsection{Minore}
+    \section{Minore}
     %5
     \begin{frame}
         \frametitle{Minor}
@@ -296,8 +295,7 @@
             \end{tikzpicture} 
         }
     \end{frame}
-
-    \subsection{Wichtige Sätze}
+    \section{Wichtige Sätze}
     %8
     \begin{frame}
         \frametitle{Eulerscher Polyedersatz}
@@ -317,22 +315,78 @@
     \begin{frame}
         \frametitle{Gebiete}
         \centering
-        \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
-            edge_style/.style={draw=black}]
-            \node (v1) at (0,0){};
-            \node (v2) at (0,1){};
-            \node (v3) at (1,0){};
-            \node (v4) at (1,1){};
-            \node (v5) at (2,0){};
-            \node (v6) at (2,1){};
-            \draw (v1) edge (v2);
-            \draw (v2) edge (v4);
-            \draw (v4) edge (v6);
-            \draw (v5) edge (v6);
-            \draw (v3) edge (v4);
-            \draw (v1) edge (v3);
-            \draw (v3) edge (v5);
-        \end{tikzpicture}
+        \only<1>{
+            \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
+                edge_style/.style={draw=black}]
+                \node (v1) at (0,0){};
+                \node (v2) at (0,1){};
+                \node (v3) at (1,0){};
+                \node (v4) at (1,1){};
+                \node (v5) at (2,0){};
+                \node (v6) at (2,1){};
+                \draw (v1) edge (v2);
+                \draw (v2) edge (v4);
+                \draw (v4) edge (v6);
+                \draw (v5) edge (v6);
+                \draw (v3) edge (v4);
+                \draw (v1) edge (v3);
+                \draw (v3) edge (v5);
+            \end{tikzpicture}
+        }
+        \only<2>{
+            \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
+                edge_style/.style={draw=black}]
+                \node (v1) at (0,0){};
+                \node (v2) at (0,1){};
+                \node (v3) at (1,0){};
+                \node (v4) at (1,1){};
+                \node (v5) at (2,0){};
+                \node (v6) at (2,1){};
+                \draw (v1) edge [red] (v2);
+                \draw (v2) edge [red] (v4);
+                \draw (v4) edge (v6);
+                \draw (v5) edge (v6);
+                \draw (v3) edge [red] (v4);
+                \draw (v1) edge [red] (v3);
+                \draw (v3) edge (v5);
+            \end{tikzpicture}
+        }
+        \only<3>{
+            \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
+                edge_style/.style={draw=black}]
+                \node (v1) at (0,0){};
+                \node (v2) at (0,1){};
+                \node (v3) at (1,0){};
+                \node (v4) at (1,1){};
+                \node (v5) at (2,0){};
+                \node (v6) at (2,1){};
+                \draw (v1) edge (v2);
+                \draw (v2) edge (v4);
+                \draw (v4) edge [blue](v6);
+                \draw (v5) edge [blue](v6);
+                \draw (v3) edge [blue] (v4);
+                \draw (v1) edge (v3);
+                \draw (v3) edge [blue](v5);
+            \end{tikzpicture}
+        }
+        \only<4>{
+            \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
+                edge_style/.style={draw=black}]
+                \node (v1) at (0,0){};
+                \node (v2) at (0,1){};
+                \node (v3) at (1,0){};
+                \node (v4) at (1,1){};
+                \node (v5) at (2,0){};
+                \node (v6) at (2,1){};
+                \draw (v1) edge [green](v2);
+                \draw (v2) edge [green](v4);
+                \draw (v4) edge [green](v6);
+                \draw (v5) edge [green](v6);
+                \draw (v3) edge (v4);
+                \draw (v1) edge [green](v3);
+                \draw (v3) edge [green](v5);
+            \end{tikzpicture}
+        }
     \end{frame}
     %10
     \begin{frame}
@@ -387,9 +441,7 @@
             \end{subfigure}
         \end{figure}
     \end{frame}
-
-    \section{Der Algorithmus}
-    \subsection{Komponente, Separator, Bikomponente}
+    \section{Komponenten, Separatoren und Bikomponenten}
     %11
     \begin{frame}
         \frametitle{Komponente}
@@ -578,942 +630,192 @@
             \end{tikzpicture}
         }
     \end{frame}
-    %14
-    \begin{frame}
-        \frametitle{Der Algorithmus}
-        \begin{enumerate}
-            \item Erstelle den Palmtree zu G
-        \end{enumerate}
-    \end{frame}
-    
-    \subsection{Palmtree}
     %15
+    \section{Der Einbettungsalgorithmus}
     \begin{frame}
-        \frametitle{Palmtree}
+        \frametitle{Bikomponenten und Planarität}
+        \begin{Satz}
+            Ein Graph ist genau dan Planar, wenn seine Bikomponenten planar sind
+        \end{Satz}
+        \begin{figure}
+            \centering
+            \begin{subfigure}{.50\textwidth}
+                \centering
+                \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
+                    edge_style/.style={draw=black}]
+                    \node (v1) at (0,0){};
+                    \node (v2) at (0,2){};
+                    \node (v3) at (2,1){};
+                    \node (v4) at (1,1){};
+                    \draw (v1)[blue] edge (v2){};
+                    \draw (v1)[blue] edge (v3){};
+                    \draw (v2)[blue] edge (v3){};
+                    \draw (v3)[green] edge (v4){};
+                \end{tikzpicture}
+            \end{subfigure}
+            \begin{subfigure}{.48\textwidth}
+                \centering
+                \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
+                    edge_style/.style={draw=black}]
+                    \node (v1) at (0,0){};
+                    \node (v2) at (0,2){};
+                    \node (v3) at (2,1){};
+                    \node (v4) at (3,1){};
+                    \draw (v1)[blue] edge (v2){};
+                    \draw (v1)[blue] edge (v3){};
+                    \draw (v2)[blue] edge (v3){};
+                    \draw (v3)[green] edge (v4){};
+                \end{tikzpicture}
+            \end{subfigure}
+        \end{figure}
+    
+    \end{frame}
+
+    \begin{frame}
+        \frametitle{Knoten in der Planaren Einbettung}
         \centering
         \only<1>{
             \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
                 edge_style/.style={draw=black}]
-                \node (v1) at (1, 0) {};
-                \node (v2) at (0, 1) {};
-                \node (v3) at (0, 2) {};
-                \node (v4) at (1, 3) {};
-                \node (v5) at (2, 2) {};
-                \node (v6) at (2, 1) {};
-                \draw (v1) edge (v2) {};
-                \draw (v1) edge (v5) {};
-                \draw (v1) edge (v4) {};
-                \draw (v1) edge (v3) {};
-                \draw (v1) edge (v6) {};
-                \draw (v2) edge (v3) {};
-                \draw (v2) edge (v4) {};
-                \draw (v2) edge (v5) {};
-                \draw (v3) edge (v4) {};
-                \draw (v4) edge (v5) {};
-                \draw (v5) edge (v6) {};
+                \node (v1) at (0,0){};
+                \node (v2) at (2,0){};
+                \node (v3)[red] at (1,1){};
+                \node (v4) at (0,2){};
+                \node (v5) at (2,2){};
+                \draw (v1) edge [blue] (v2){};
+                \draw (v1) edge [blue] (v3){};
+                \draw (v2) edge [blue] (v3){};
+                \draw (v3) edge [green] (v5){};
+                \draw (v3) edge [green] (v4){};
+                \draw (v4) edge [green] (v5){};
             \end{tikzpicture}
         }
         \only<2>{
             \begin{figure}
+                \begin{subfigure}{.50\textwidth}
+                    \centering
+                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
+                        edge_style/.style={draw=black}]
+                        \node (v1) at (0,0){1};
+                        \node (v2) at (2,0){2};
+                        \node (v3)[fill=red] at (1,1){3};
+                        \node (v4) at (0,2){4};
+                        \node (v5) at (2,2){5};
+                        \draw (v1) edge [blue] (v2){};
+                        \draw (v1) edge [blue] (v3){};
+                        \draw (v2) edge [blue] (v3){};
+                        \draw (v3) edge [green] (v5){};
+                        \draw (v3) edge [green] (v4){};
+                        \draw (v4) edge [green] (v5){};
+                    \end{tikzpicture}    
+                \end{subfigure}
+                \begin{subfigure}{.48\textwidth}
+                    \centering
+                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
+                        edge_style/.style={draw=black}]
+                        \node (v1)[rectangle] at (1,0){3};
+                        \node (v2) at (0,0){(3,2)};
+                        \node (v3) at (2,0){(3,5)};
+                        \node (v4) at (0,1){(3,4)};
+                        \node (v5) at (2,1){(3,1)};
+                        \draw (v1) edge (v2){};
+                        \draw (v1) edge (v3){};
+                        \draw (v3) edge (v5){};
+                        \draw (v5) edge (v4){};
+                        \draw (v4) edge (v2){};
+                    \end{tikzpicture}
+                \end{subfigure}
+            \end{figure}
+        }
+    
+    \end{frame}
+
+    \begin{frame}
+        \frametitle{Der Einbettungsalgorithmus - Idee}
+        Bette Kante für Kante ein, so dass jede Teileinbettung planar ist
+        \underbar{Frage 1:} Wo ?\\
+        \underbar{Frage 2:} Wann ?\\
+
+        \begin{figure}
+            \begin{subfigure}{.50\textwidth}
                 \centering
-                \begin{subfigure}{.5\textwidth}
-                    \centering
-                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
-                        edge_style/.style={draw=black}]
-                        \tikzset{red edge/.style={draw=red}}
-                        \tikzset{red node/.style={fill=red}}
-                        \node (v1)[red node] at (1, 0) {0};
-                        \node (v2) at (0, 1) {};
-                        \node (v3) at (0, 2) {};
-                        \node (v4) at (1, 3) {};
-                        \node (v5) at (2, 2) {};
-                        \node (v6) at (2, 1) {};
-                        \draw (v1) edge (v2) {};
-                        \draw (v1) edge (v5) {};
-                        \draw (v1) edge (v4) {};
-                        \draw (v1) edge (v3) {};
-                        \draw (v1) edge (v6) {};
-                        \draw (v2) edge (v3) {};
-                        \draw (v2) edge (v4) {};
-                        \draw (v2) edge (v5) {};
-                        \draw (v3) edge (v4) {};
-                        \draw (v4) edge (v5) {};
-                        \draw (v5) edge (v6) {};
-                    \end{tikzpicture}
-                \end{subfigure}
-                \begin{subfigure}{.48\textwidth}
-                    \centering
-                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
-                        edge_style/.style={draw=black}]
-                        \node (v1) at (0,1) {0};
-                    \end{tikzpicture}
-                \end{subfigure}
-            \end{figure}
-        }
-        \only<3>{
-            \begin{figure}
-                \begin{subfigure}{.5\textwidth}
-                    \centering
-                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
-                        edge_style/.style={draw=black}]
-                        \tikzset{red edge/.style={draw=red}}
-                        \tikzset{red node/.style={fill=red}}
-                        \node (v1)[red node] at (1, 0) {0};
-                        \node (v2)[red node] at (0, 1) {1};
-                        \node (v3) at (0, 2) {};
-                        \node (v4) at (1, 3) {};
-                        \node (v5) at (2, 2) {};
-                        \node (v6) at (2, 1) {};
-                        \draw (v1)[red edge] edge (v2) {};
-                        \draw (v1) edge (v5) {};
-                        \draw (v1) edge (v4) {};
-                        \draw (v1) edge (v3) {};
-                        \draw (v1) edge (v6) {};
-                        \draw (v2) edge (v3) {};
-                        \draw (v2) edge (v4) {};
-                        \draw (v2) edge (v5) {};
-                        \draw (v3) edge (v4) {};
-                        \draw (v4) edge (v5) {};
-                        \draw (v5) edge (v6) {};
-                    \end{tikzpicture}
-                \end{subfigure}
-                \begin{subfigure}{.48\textwidth}
-                    \centering
-                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
-                        edge_style/.style={draw=black}]
-                        \node (v1) at (0,0) {0};
-                        \node (v2) at (0,1) {1};
-                        \draw (v1) edge (v2) {};
-                    \end{tikzpicture}
-                \end{subfigure}
-            \end{figure}
-        }
-        \only<4>{
-            \begin{figure}
-                \begin{subfigure}{.5\textwidth}
-                    \centering
-                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
-                        edge_style/.style={draw=black}]
-                        \tikzset{red edge/.style={draw=red}}
-                        \tikzset{red node/.style={fill=red}}
-                        \node (v1)[red node] at (1, 0) {0};
-                        \node (v2)[red node] at (0, 1) {1};
-                        \node (v3) at (0, 2) {};
-                        \node (v4) at (1, 3) {};
-                        \node (v5)[red node] at (2, 2) {2};
-                        \node (v6) at (2, 1) {};
-                        \draw (v1)[red edge] edge (v2) {};
-                        \draw (v1) edge (v5) {};
-                        \draw (v1) edge (v4) {};
-                        \draw (v1) edge (v3) {};
-                        \draw (v1) edge (v6) {};
-                        \draw (v2) edge (v3) {};
-                        \draw (v2) edge (v4) {};
-                        \draw (v2)[red edge] edge (v5) {};
-                        \draw (v3) edge (v4) {};
-                        \draw (v4) edge (v5) {};
-                        \draw (v5) edge (v6) {};
-                    \end{tikzpicture}
-                \end{subfigure}
-                \begin{subfigure}{.48\textwidth}
-                    \centering
-                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
-                        edge_style/.style={draw=black}]
-                        \node (v1) at (0,0) {0};
-                        \node (v2) at (0,1) {1};
-                        \node (v3) at (0,2) {2};
-                        \draw (v1) edge (v2) {};
-                        \draw (v2) edge (v3) {};
-                    \end{tikzpicture}
-                \end{subfigure}
-            \end{figure}
-        }
-        \only<5>{
-            \begin{figure}
-                \begin{subfigure}{.5\textwidth}
-                    \centering
-                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
-                        edge_style/.style={draw=black}]
-                        \tikzset{red edge/.style={draw=red}}
-                        \tikzset{red node/.style={fill=red}}
-                        \node (v1)[red node] at (1, 0) {0};
-                        \node (v2)[red node] at (0, 1) {1};
-                        \node (v3) at (0, 2) {};
-                        \node (v4)[red node] at (1, 3) {3};
-                        \node (v5)[red node] at (2, 2) {2};
-                        \node (v6) at (2, 1) {};
-                        \draw (v1)[red edge] edge (v2) {};
-                        \draw (v1) edge (v5) {};
-                        \draw (v1) edge (v4) {};
-                        \draw (v1) edge (v3) {};
-                        \draw (v1) edge (v6) {};
-                        \draw (v2) edge (v3) {};
-                        \draw (v2) edge (v4) {};
-                        \draw (v2)[red edge] edge (v5) {};
-                        \draw (v3) edge (v4) {};
-                        \draw (v4)[red edge] edge (v5) {};
-                        \draw (v5) edge (v6) {};
-                    \end{tikzpicture}
-                \end{subfigure}
-                \begin{subfigure}{.48\textwidth}
-                    \centering
-                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
-                        edge_style/.style={draw=black}]
-                        \node (v1) at (0,0) {0};
-                        \node (v2) at (0,1) {1};
-                        \node (v3) at (0,2) {2};
-                        \node (v4) at (0,3) {3};
-                        \draw (v1) edge (v2) {};
-                        \draw (v2) edge (v3) {};
-                        \draw (v3) edge (v4) {};
-                    \end{tikzpicture}
-                \end{subfigure}
-            \end{figure}
-        }
-        \only<6>{
-            \begin{figure}
-                \begin{subfigure}{.5\textwidth}
-                    \centering
-                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
-                        edge_style/.style={draw=black}]
-                        \tikzset{red edge/.style={draw=red}}
-                        \tikzset{red node/.style={fill=red}}
-                        \node (v1)[red node] at (1, 0) {0};
-                        \node (v2)[red node] at (0, 1) {1};
-                        \node (v3)[red node] at (0, 2) {4};
-                        \node (v4)[red node] at (1, 3) {3};
-                        \node (v5)[red node] at (2, 2) {2};
-                        \node (v6) at (2, 1) {};
-                        \draw (v1)[red edge] edge (v2) {};
-                        \draw (v1) edge (v5) {};
-                        \draw (v1) edge (v4) {};
-                        \draw (v1) edge (v3) {};
-                        \draw (v1) edge (v6) {};
-                        \draw (v2) edge (v3) {};
-                        \draw (v2) edge (v4) {};
-                        \draw (v2)[red edge] edge (v5) {};
-                        \draw (v3)[red edge] edge (v4) {};
-                        \draw (v4)[red edge] edge (v5) {};
-                        \draw (v5) edge (v6) {};
-                    \end{tikzpicture}
-                \end{subfigure}
-                \begin{subfigure}{.48\textwidth}
-                    \centering
-                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
-                        edge_style/.style={draw=black}]
-                        \node (v1) at (0,0) {0};
-                        \node (v2) at (0,1) {1};
-                        \node (v3) at (0,2) {2};
-                        \node (v4) at (0,3) {3};
-                        \node (v5) at (0,4) {4};
-                        \draw (v1) edge (v2) {};
-                        \draw (v2) edge (v3) {};
-                        \draw (v3) edge (v4) {};
-                        \draw (v4) edge (v5) {};
-                    \end{tikzpicture}
-                \end{subfigure}
-            \end{figure}
-        }
-        \only<7>{
-            \begin{figure}
-                \begin{subfigure}{.5\textwidth}
-                    \centering
-                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
-                        edge_style/.style={draw=black}]
-                        \tikzset{red edge/.style={draw=red}}
-                        \tikzset{red node/.style={fill=red}}
-                        \node (v1)[red node] at (1, 0) {0};
-                        \node (v2)[red node] at (0, 1) {1};
-                        \node (v3)[red node] at (0, 2) {4};
-                        \node (v4)[red node] at (1, 3) {3};
-                        \node (v5)[red node] at (2, 2) {2};
-                        \node (v6)[red node] at (2, 1) {5};
-                        \draw (v1)[red edge] edge (v2) {};
-                        \draw (v1) edge (v5) {};
-                        \draw (v1) edge (v4) {};
-                        \draw (v1) edge (v3) {};
-                        \draw (v1) edge (v6) {};
-                        \draw (v2) edge (v3) {};
-                        \draw (v2) edge (v4) {};
-                        \draw (v2)[red edge] edge (v5) {};
-                        \draw (v3)[red edge] edge (v4) {};
-                        \draw (v4)[red edge] edge (v5) {};
-                        \draw (v5)[red edge] edge (v6) {};
-                    \end{tikzpicture}
-                \end{subfigure}
-                \begin{subfigure}{.48\textwidth}
-                    \centering
-                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
-                        edge_style/.style={draw=black}]
-                        \node (v1) at (0,0) {0};
-                        \node (v2) at (0,1) {1};
-                        \node (v3) at (0,2) {2};
-                        \node (v4) at (0,3) {3};
-                        \node (v5) at (0,4) {4};
-                        \node (v6) at (1,3) {5};
-                        \draw (v1) edge (v2) {};
-                        \draw (v2) edge (v3) {};
-                        \draw (v3) edge (v4) {};
-                        \draw (v4) edge (v5) {};
-                        \draw (v3) edge (v6) {};
-                    \end{tikzpicture}
-                \end{subfigure}
-            \end{figure}
-        }
-        \only<8>{
-            \begin{figure}
-                \begin{subfigure}{.5\textwidth}
-                    \centering
-                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
-                        edge_style/.style={draw=black}]
-                        \tikzset{red edge/.style={draw=red}}
-                        \tikzset{green edge/.style={draw=green}}
-                        \tikzset{red node/.style={fill=red}}
-                        \node (v1)[red node] at (1, 0) {0};
-                        \node (v2)[red node] at (0, 1) {1};
-                        \node (v3)[red node] at (0, 2) {4};
-                        \node (v4)[red node] at (1, 3) {3};
-                        \node (v5)[red node] at (2, 2) {2};
-                        \node (v6)[red node] at (2, 1) {5};
-                        \draw (v1)[red edge] edge (v2) {};
-                        \draw (v1)[green edge] edge (v5) {};
-                        \draw (v1) edge (v4) {};
-                        \draw (v1) edge (v3) {};
-                        \draw (v1) edge (v6) {};
-                        \draw (v2) edge (v3) {};
-                        \draw (v2) edge (v4) {};
-                        \draw (v2)[red edge] edge (v5) {};
-                        \draw (v3)[red edge] edge (v4) {};
-                        \draw (v4)[red edge] edge (v5) {};
-                        \draw (v5)[red edge] edge (v6) {};
-                    \end{tikzpicture}
-                \end{subfigure}
-                \begin{subfigure}{.48\textwidth}
-                    \centering
-                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
-                        edge_style/.style={draw=black}]
-                        \node (v1) at (0,0) {0};
-                        \node (v2) at (0,1) {1};
-                        \node (v3) at (0,2) {2};
-                        \node (v4) at (0,3) {3};
-                        \node (v5) at (0,4) {4};
-                        \node (v6) at (1,3) {5};
-                        \draw (v1) edge (v2) {};
-                        \draw (v2) edge (v3) {};
-                        \draw (v3) edge (v4) {};
-                        \draw (v4) edge (v5) {};
-                        \draw (v3) edge (v6) {};
-                        \draw (v1)[bend right] edge (v3) {};
-                    \end{tikzpicture}
-                \end{subfigure}
-            \end{figure}
-        }
-        \only<9>{
-            \begin{figure}
-                \begin{subfigure}{.5\textwidth}
-                    \centering
-                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
-                        edge_style/.style={draw=black}]
-                        \tikzset{red edge/.style={draw=red}}
-                        \tikzset{green edge/.style={draw=green}}
-                        \tikzset{red node/.style={fill=red}}
-                        \node (v1)[red node] at (1, 0) {0};
-                        \node (v2)[red node] at (0, 1) {1};
-                        \node (v3)[red node] at (0, 2) {4};
-                        \node (v4)[red node] at (1, 3) {3};
-                        \node (v5)[red node] at (2, 2) {2};
-                        \node (v6)[red node] at (2, 1) {5};
-                        \draw (v1)[red edge] edge (v2) {};
-                        \draw (v1)[green edge] edge (v5) {};
-                        \draw (v1)[green edge] edge (v4) {};
-                        \draw (v1) edge (v3) {};
-                        \draw (v1) edge (v6) {};
-                        \draw (v2) edge (v3) {};
-                        \draw (v2) edge (v4) {};
-                        \draw (v2)[red edge] edge (v5) {};
-                        \draw (v3)[red edge] edge (v4) {};
-                        \draw (v4)[red edge] edge (v5) {};
-                        \draw (v5)[red edge] edge (v6) {};
-                    \end{tikzpicture}
-                \end{subfigure}
-                \begin{subfigure}{.48\textwidth}
-                    \centering
-                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
-                        edge_style/.style={draw=black}]
-                        \node (v1) at (0,0) {0};
-                        \node (v2) at (0,1) {1};
-                        \node (v3) at (0,2) {2};
-                        \node (v4) at (0,3) {3};
-                        \node (v5) at (0,4) {4};
-                        \node (v6) at (1,3) {5};
-                        \draw (v1) edge (v2) {};
-                        \draw (v2) edge (v3) {};
-                        \draw (v3) edge (v4) {};
-                        \draw (v4) edge (v5) {};
-                        \draw (v3) edge (v6) {};
-                        \draw (v1)[bend right] edge (v3) {};
-                        \draw (v1)[bend left] edge (v4) {};
-                    \end{tikzpicture}
-                \end{subfigure}
-            \end{figure}
-        }
-        \only<10>{
-            \begin{figure}
-                \begin{subfigure}{.5\textwidth}
-                    \centering
-                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
-                        edge_style/.style={draw=black}]
-                        \tikzset{red edge/.style={draw=red}}
-                        \tikzset{green edge/.style={draw=green}}
-                        \tikzset{red node/.style={fill=red}}
-                        \node (v1)[red node] at (1, 0) {0};
-                        \node (v2)[red node] at (0, 1) {1};
-                        \node (v3)[red node] at (0, 2) {4};
-                        \node (v4)[red node] at (1, 3) {3};
-                        \node (v5)[red node] at (2, 2) {2};
-                        \node (v6)[red node] at (2, 1) {5};
-                        \draw (v1)[red edge] edge (v2) {};
-                        \draw (v1)[green edge] edge (v5) {};
-                        \draw (v1)[green edge] edge (v4) {};
-                        \draw (v1)[green edge] edge (v3) {};
-                        \draw (v1) edge (v6) {};
-                        \draw (v2) edge (v3) {};
-                        \draw (v2) edge (v4) {};
-                        \draw (v2)[red edge] edge (v5) {};
-                        \draw (v3)[red edge] edge (v4) {};
-                        \draw (v4)[red edge] edge (v5) {};
-                        \draw (v5)[red edge] edge (v6) {};
-                    \end{tikzpicture}
-                \end{subfigure}
-                \begin{subfigure}{.48\textwidth}
-                    \centering
-                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
-                        edge_style/.style={draw=black}]
-                        \node (v1) at (0,0) {0};
-                        \node (v2) at (0,1) {1};
-                        \node (v3) at (0,2) {2};
-                        \node (v4) at (0,3) {3};
-                        \node (v5) at (0,4) {4};
-                        \node (v6) at (1,3) {5};
-                        \draw (v1) edge (v2) {};
-                        \draw (v2) edge (v3) {};
-                        \draw (v3) edge (v4) {};
-                        \draw (v4) edge (v5) {};
-                        \draw (v3) edge (v6) {};
-                        \draw (v1)[bend right] edge (v3) {};
-                        \draw (v1)[bend left] edge (v4) {};
-                        \draw (v1)[bend left] edge (v5) {};
-                    \end{tikzpicture}
-                \end{subfigure}
-            \end{figure}
-        }
-        \only<11>{
-            \begin{figure}
-                \begin{subfigure}{.5\textwidth}
-                    \centering
-                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
-                        edge_style/.style={draw=black}]
-                        \tikzset{red edge/.style={draw=red}}
-                        \tikzset{green edge/.style={draw=green}}
-                        \tikzset{red node/.style={fill=red}}
-                        \node (v1)[red node] at (1, 0) {0};
-                        \node (v2)[red node] at (0, 1) {1};
-                        \node (v3)[red node] at (0, 2) {4};
-                        \node (v4)[red node] at (1, 3) {3};
-                        \node (v5)[red node] at (2, 2) {2};
-                        \node (v6)[red node] at (2, 1) {5};
-                        \draw (v1)[red edge] edge (v2) {};
-                        \draw (v1)[green edge] edge (v5) {};
-                        \draw (v1)[green edge] edge (v4) {};
-                        \draw (v1)[green edge] edge (v3) {};
-                        \draw (v1)[green edge] edge (v6) {};
-                        \draw (v2) edge (v3) {};
-                        \draw (v2) edge (v4) {};
-                        \draw (v2)[red edge] edge (v5) {};
-                        \draw (v3)[red edge] edge (v4) {};
-                        \draw (v4)[red edge] edge (v5) {};
-                        \draw (v5)[red edge] edge (v6) {};
-                    \end{tikzpicture}
-                \end{subfigure}
-                \begin{subfigure}{.48\textwidth}
-                    \centering
-                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
-                        edge_style/.style={draw=black}]
-                        \node (v1) at (0,0) {0};
-                        \node (v2) at (0,1) {1};
-                        \node (v3) at (0,2) {2};
-                        \node (v4) at (0,3) {3};
-                        \node (v5) at (0,4) {4};
-                        \node (v6) at (1,3) {5};
-                        \draw (v1) edge (v2) {};
-                        \draw (v2) edge (v3) {};
-                        \draw (v3) edge (v4) {};
-                        \draw (v4) edge (v5) {};
-                        \draw (v3) edge (v6) {};
-                        \draw (v1)[bend right] edge (v3) {};
-                        \draw (v1)[bend left] edge (v4) {};
-                        \draw (v1)[bend left] edge (v5) {};
-                        \draw (v1)[bend right] edge (v6) {};
-                    \end{tikzpicture}
-                \end{subfigure}
-            \end{figure}
-        }
-        \only<12>{
-            \begin{figure}
-                \begin{subfigure}{.5\textwidth}
-                    \centering
-                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
-                        edge_style/.style={draw=black}]
-                        \tikzset{red edge/.style={draw=red}}
-                        \tikzset{green edge/.style={draw=green}}
-                        \tikzset{red node/.style={fill=red}}
-                        \node (v1)[red node] at (1, 0) {0};
-                        \node (v2)[red node] at (0, 1) {1};
-                        \node (v3)[red node] at (0, 2) {4};
-                        \node (v4)[red node] at (1, 3) {3};
-                        \node (v5)[red node] at (2, 2) {2};
-                        \node (v6)[red node] at (2, 1) {5};
-                        \draw (v1)[red edge] edge (v2) {};
-                        \draw (v1)[green edge] edge (v5) {};
-                        \draw (v1)[green edge] edge (v4) {};
-                        \draw (v1)[green edge] edge (v3) {};
-                        \draw (v1)[green edge] edge (v6) {};
-                        \draw (v2)[green edge] edge (v3) {};
-                        \draw (v2) edge (v4) {};
-                        \draw (v2)[red edge] edge (v5) {};
-                        \draw (v3)[red edge] edge (v4) {};
-                        \draw (v4)[red edge] edge (v5) {};
-                        \draw (v5)[red edge] edge (v6) {};
-                    \end{tikzpicture}
-                \end{subfigure}
-                \begin{subfigure}{.48\textwidth}
-                    \centering
-                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
-                        edge_style/.style={draw=black}]
-                        \node (v1) at (0,0) {0};
-                        \node (v2) at (0,1) {1};
-                        \node (v3) at (0,2) {2};
-                        \node (v4) at (0,3) {3};
-                        \node (v5) at (0,4) {4};
-                        \node (v6) at (1,3) {5};
-                        \draw (v1) edge (v2) {};
-                        \draw (v2) edge (v3) {};
-                        \draw (v3) edge (v4) {};
-                        \draw (v4) edge (v5) {};
-                        \draw (v3) edge (v6) {};
-                        \draw (v1)[bend right] edge (v3) {};
-                        \draw (v1)[bend left] edge (v4) {};
-                        \draw (v1)[bend left] edge (v5) {};
-                        \draw (v1)[bend right] edge (v6) {};
-                        \draw (v2)[bend left] edge (v5) {};
-                    \end{tikzpicture}
-                \end{subfigure}
-            \end{figure}
-        }
-        \only<13>{
-            \begin{figure}
-                \begin{subfigure}{.5\textwidth}
-                    \centering
-                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
-                        edge_style/.style={draw=black}]
-                        \tikzset{red edge/.style={draw=red}}
-                        \tikzset{green edge/.style={draw=green}}
-                        \tikzset{red node/.style={fill=red}}
-                        \node (v1)[red node] at (1, 0) {0};
-                        \node (v2)[red node] at (0, 1) {1};
-                        \node (v3)[red node] at (0, 2) {4};
-                        \node (v4)[red node] at (1, 3) {3};
-                        \node (v5)[red node] at (2, 2) {2};
-                        \node (v6)[red node] at (2, 1) {5};
-                        \draw (v1)[red edge] edge (v2) {};
-                        \draw (v1)[green edge] edge (v5) {};
-                        \draw (v1)[green edge] edge (v4) {};
-                        \draw (v1)[green edge] edge (v3) {};
-                        \draw (v1)[green edge] edge (v6) {};
-                        \draw (v2)[green edge] edge (v3) {};
-                        \draw (v2)[green edge] edge (v4) {};
-                        \draw (v2)[red edge] edge (v5) {};
-                        \draw (v3)[red edge] edge (v4) {};
-                        \draw (v4)[red edge] edge (v5) {};
-                        \draw (v5)[red edge] edge (v6) {};
-                    \end{tikzpicture}
-                \end{subfigure}
-                \begin{subfigure}{.48\textwidth}
-                    \centering
-                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
-                        edge_style/.style={draw=black}]
-                        \node (v1) at (0,0) {0};
-                        \node (v2) at (0,1) {1};
-                        \node (v3) at (0,2) {2};
-                        \node (v4) at (0,3) {3};
-                        \node (v5) at (0,4) {4};
-                        \node (v6) at (1,3) {5};
-                        \draw (v1) edge (v2) {};
-                        \draw (v2) edge (v3) {};
-                        \draw (v3) edge (v4) {};
-                        \draw (v4) edge (v5) {};
-                        \draw (v3) edge (v6) {};
-                        \draw (v1)[bend right] edge (v3) {};
-                        \draw (v1)[bend left] edge (v4) {};
-                        \draw (v1)[bend left] edge (v5) {};
-                        \draw (v1)[bend right] edge (v6) {};
-                        \draw (v2)[bend left] edge (v5) {};
-                        \draw (v2)[bend left] edge (v4) {};
-                    \end{tikzpicture}
-                \end{subfigure}
-            \end{figure}
-        }
-    \end{frame}
+                
+                
+                \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
+                    edge_style/.style={draw=black}]
+                    \node (v1) at (0,0){};
+                    \node (v2) at (1,0){};
+                    \node (v3) at (0,1){};
+                    \node (v4) at (1,1){};
+                    \draw (v1) edge (v2){};
+                    \draw (v2) edge (v4){};
+                    \draw (v4) edge (v3){};
+                    \draw (v1) edge (v3){};
+                    \draw (v1) edge (v4){};
+                    \draw (v2) edge [red]  (v3){};
+                \end{tikzpicture}
+            \end{subfigure}
+        \end{figure}
 
-    \begin{frame}
-        \frametitle{Der Algorithmus}
-        \begin{enumerate}
-            \item Erstelle den Palmtree zu G
-            \item Berechne die Lowpoint-Werte der Knoten
-            \item Erstelle für alle Knoten v eine AdjacencyList, welche die Kinder von v sortiert nach Lowpoint enthält 
-        \end{enumerate}
-    \end{frame}
 
-    \subsection{Außen Aktive Knoten}
-    %19
-    \begin{frame}
-        \frametitle{Außen Aktive Knoten}
-        %\begin{Definition}
-        %    Betrachten wir einen Knoten v, so heißt ein Nachkomme w von v, außenaktiv, wenn es einen Pfad aus mehreren Nachkommen von w 
-        %    gibt ,dessen Knoten nicht mit v und w in einer Bikomponente liegen, und einer Backedge, der zu einem Vorfahren von v führt
-        %\end{Definition}
-        \centering
-        \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
-            edge_style/.style={draw=black}]
-            \tikzset{activ/.style={rectangle}}
-            \tikzset{red node/.style={fill=red}}
-
-            \node (v1) at (0,0){0'};
-            \node (v2) at (0,1){1};
-            \draw (v1) edge (v2){};
-            \node (v3)[red node]  at (0,2){1'};
-            \node (v4)[activ] at (0,3){2};
-            \node (v5) at (1,4){4};
-            \draw (v3) edge (v4){};
-            \draw (v4)[bend left] edge (v5){};
-            \draw (v3) edge (v5){};
-            \node (v6) at (0,5){2'};
-            \node (v7)[activ] at (0,6){3};
-            \draw (v6) edge (v7){};
-            \draw (v1) edge[dashed,bend left] (v7){};
-        \end{tikzpicture}
         
-    
     \end{frame}
 
-    %20
     \begin{frame}
-        \frametitle{Lowpoint Werte}
+        \frametitle{Wo ?}
+        \centering
         \only<1>{
-            \begin{figure}
-                \centering
-                \begin{subfigure}{.5\textwidth}
-                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
-                        edge_style/.style={draw=black}]
-                        \tikzset{activ/.style={rectangle}}
-                        \tikzset{red node/.style={fill=red}}
-            
-                        \node (v1) at (0,0){0};
-                        \node (v2) at (0,1){1};
-                        \node (v3) at (0,2){2};
-                        \node (v4) at (0,4){3};
-                        \node (v5) at (1,3){4};
-                        \draw (v1) edge (v2){};
-                        \draw (v2) edge (v3){};
-                        \draw (v3) edge (v4){};
-                        \draw (v2) edge (v5){}; 
-                        \draw (v4)[bend right] edge (v1){};
-                        \draw (v5)[bend right] edge (v3){};
-                    \end{tikzpicture}
-                \end{subfigure}
-                \begin{subfigure}{.48\textwidth}
-                    L(4) = 2
-                \end{subfigure}
-            \end{figure}
+            \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
+                edge_style/.style={draw=black}]
+                \node (v1) at (0,0){};
+                \node (v2) at (1,0){};
+                \node (v3) at (2,0){};
+                \node (v4) at (1,1){};
+                \node (v5) at (1,2){};
+                \draw (v1) edge (v2){};
+                \draw (v2) edge (v3){};
+                \draw (v1) edge (v5){};
+                \draw (v3) edge (v5){};
+                \draw (v2) edge (v4){};
+                \draw (v4) edge (v5){};
+            \end{tikzpicture}
         }
         \only<2>{
-            \begin{figure}
-                \centering
-                \begin{subfigure}{.5\textwidth}
-                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
-                        edge_style/.style={draw=black}]
-                        \tikzset{activ/.style={rectangle}}
-                        \tikzset{red node/.style={fill=red}}
-            
-                        \node (v1) at (0,0){0};
-                        \node (v2) at (0,1){1};
-                        \node (v3) at (0,2){2};
-                        \node (v4) at (0,4){3};
-                        \node (v5) at (1,3){4};
-                        \draw (v1) edge (v2){};
-                        \draw (v2) edge (v3){};
-                        \draw (v3) edge (v4){};
-                        \draw (v2) edge (v5){}; 
-                        \draw (v4)[bend right] edge (v1){};
-                        \draw (v5)[bend right] edge (v3){};
-                    \end{tikzpicture}
-                \end{subfigure}
-                \begin{subfigure}{.48\textwidth}
-                    L(4) = 2 \\
-                    L(3) = 0
-                \end{subfigure}
-            \end{figure}
+            \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
+                edge_style/.style={draw=black}]
+                \node (v1) at (0,0){};
+                \node (v2) at (1,0){};
+                \node (v3) at (2,0){};
+                \node (v4) at (1,1){};
+                \node (v5) at (1,2){};
+                \draw (v1) edge (v2){};
+                \draw (v2) edge (v3){};
+                \draw (v1) edge (v5){};
+                \draw (v3) edge (v5){};
+                \draw (v2) edge (v4){};
+                \draw (v4) edge (v5){};
+                \draw (v1) edge[red, bend left] (v3){};
+            \end{tikzpicture}
         }
         \only<3>{
-            \begin{figure}
-                \centering
-                \begin{subfigure}{.5\textwidth}
-                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
-                        edge_style/.style={draw=black}]
-                        \tikzset{activ/.style={rectangle}}
-                        \tikzset{red node/.style={fill=red}}
-            
-                        \node (v1) at (0,0){0};
-                        \node (v2) at (0,1){1};
-                        \node (v3) at (0,2){2};
-                        \node (v4) at (0,4){3};
-                        \node (v5) at (1,3){4};
-                        \draw (v1) edge (v2){};
-                        \draw (v2) edge (v3){};
-                        \draw (v3) edge (v4){};
-                        \draw (v2) edge (v5){}; 
-                        \draw (v4)[bend right] edge (v1){};
-                        \draw (v5)[bend right] edge (v3){};
-                    \end{tikzpicture}
-                \end{subfigure}
-                \begin{subfigure}{.48\textwidth}
-                    L(4) = 2\\
-                    L(3) = 0\\
-                    L(2) = 0
-                \end{subfigure}
-            \end{figure}
+            \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
+                edge_style/.style={draw=black}]
+                \node (v1) at (0,0){};
+                \node (v2) at (1,0){};
+                \node (v3) at (2,0){};
+                \node (v4) at (1,1){};
+                \node (v5) at (1,2){};
+                \draw (v1) edge (v2){};
+                \draw (v2) edge (v3){};
+                \draw (v1) edge (v5){};
+                \draw (v3) edge (v5){};
+                \draw (v2) edge (v4){};
+                \draw (v4) edge (v5){};
+                \draw (v1) edge[red, bend right] (v3){};
+            \end{tikzpicture}
         }
-        \only<4>{
-            \begin{figure}
-                \centering
-                \begin{subfigure}{.5\textwidth}
-                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
-                        edge_style/.style={draw=black}]
-                        \tikzset{activ/.style={rectangle}}
-                        \tikzset{red node/.style={fill=red}}
-            
-                        \node (v1) at (0,0){0};
-                        \node (v2) at (0,1){1};
-                        \node (v3) at (0,2){2};
-                        \node (v4) at (0,4){3};
-                        \node (v5) at (1,3){4};
-                        \draw (v1) edge (v2){};
-                        \draw (v2) edge (v3){};
-                        \draw (v3) edge (v4){};
-                        \draw (v2) edge (v5){}; 
-                        \draw (v4)[bend right] edge (v1){};
-                        \draw (v5)[bend right] edge (v3){};
-                    \end{tikzpicture}
-                \end{subfigure}
-                \begin{subfigure}{.48\textwidth}
-                    L(4) = 2\\
-                    L(3) = 0\\
-                    L(2) = 0\\
-                    L(1) = 0
-                \end{subfigure}
-            \end{figure}
-        }
-        \only<5>{
-            \begin{figure}
-                \centering
-                \begin{subfigure}{.5\textwidth}
-                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
-                        edge_style/.style={draw=black}]
-                        \tikzset{activ/.style={rectangle}}
-                        \tikzset{red node/.style={fill=red}}
-            
-                        \node (v1) at (0,0){0};
-                        \node (v2) at (0,1){1};
-                        \node (v3) at (0,2){2};
-                        \node (v4) at (0,4){3};
-                        \node (v5) at (1,3){4};
-                        \draw (v1) edge (v2){};
-                        \draw (v2) edge (v3){};
-                        \draw (v3) edge (v4){};
-                        \draw (v2) edge (v5){}; 
-                        \draw (v4)[bend right] edge (v1){};
-                        \draw (v5)[bend right] edge (v3){};
-                    \end{tikzpicture}
-                \end{subfigure}
-                \begin{subfigure}{.48\textwidth}
-                    L(4) = 2\\
-                    L(3) = 0\\
-                    L(2) = 0\\
-                    L(1) = 0\\
-                    L(0) = 0
-                \end{subfigure}
-            \end{figure}
-        }
-    
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Außen Aktive Knoten per Lowpoint bestimmen}
-        \only<1>{
-                \begin{Lemma}
-                Ein Knoten p heißt Außen Aktiv, wärend der Bearbeitung von w, genau dan wenn $L(p) < DFI(w)$ oder wenn $L(q) < DFI (w)$, wobei q das erste Element der
-                AdjacencyList von p ist.
-            \end{Lemma}
-        }   
-        \only<2>{
-            \begin{figure}
-                \begin{subfigure}{.5\textwidth}
-                    \begin{Lemma}
-                        Ein Knoten p heißt Außen Aktiv, wärend der Bearbeitung von w, genau dan wenn $L(p) < DFI(w)$ oder wenn $L(q) < DFI (w)$, wobei q das erste Element der
-                        AdjacencyList von p ist.
-                    \end{Lemma}
-                \end{subfigure}
-                \begin{subfigure}{.48\textwidth}
-                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
-                        edge_style/.style={draw=black}]
-                        \tikzset{activ/.style={rectangle}}
-                        \tikzset{red node/.style={fill=red}}
-
-                        \node (v1) at (0,0){0'};
-                        \node (v2) at (0,1){1};
-                        \draw (v1) edge (v2){};
-                        \node (v3)[red node]  at (0,2){1'};
-                        \node (v4) at (0,3){2};
-                        \node (v5) at (1,4){4};
-                        \draw (v3) edge (v4){};
-                        \draw (v4)[bend left] edge (v5){};
-                        \draw (v3) edge (v5){};
-                        \node (v6) at (0,5){2'};
-                        \node (v7) at (0,6){3};
-                        \draw (v6) edge (v7){};
-                        \draw (v1) edge[dashed,bend left] (v7){};
-                    \end{tikzpicture}
-                \end{subfigure}
-            \end{figure}
-        }
-        \only<3>{
-            \begin{figure}
-                \begin{subfigure}{.5\textwidth}
-                    \underbar{p = 2:}\\
-                        $L(p) < 1 \Leftrightarrow 0 < 1$\\
-                        $\Rightarrow$ 2 ist Außen Aktiv 
-                    \begin{Lemma}
-                        Ein Knoten p heißt Außen Aktiv, wärend der Bearbeitung von w, genau dan wenn $L(p) < DFI(w)$ oder wenn $L(q) < DFI (w)$, wobei q das erste Element der
-                        AdjacencyList von p ist.
-                    \end{Lemma}
-                \end{subfigure}
-                \begin{subfigure}{.48\textwidth}
-                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
-                        edge_style/.style={draw=black}]
-                        \tikzset{activ/.style={rectangle}}
-                        \tikzset{red node/.style={fill=red}}
-
-                        \node (v1) at (0,0){0'};
-                        \node (v2) at (0,1){1};
-                        \draw (v1) edge (v2){};
-                        \node (v3)[red node]  at (0,2){1'};
-                        \node (v4) at (0,3){2};
-                        \node (v5) at (1,4){4};
-                        \draw (v3) edge (v4){};
-                        \draw (v4)[bend left] edge (v5){};
-                        \draw (v3) edge (v5){};
-                        \node (v6) at (0,5){2'};
-                        \node (v7) at (0,6){3};
-                        \draw (v6) edge (v7){};
-                        \draw (v1) edge[dashed,bend left] (v7){};
-                    \end{tikzpicture}
-                \end{subfigure}
-            \end{figure}
-        }
-        \only<4>{
-            \begin{figure}
-                \begin{subfigure}{.5\textwidth}
-                    \underbar{p = 3:}\\
-                        $L(p) < 1 \Leftrightarrow 0 < 1$\\
-                        $\Rightarrow$ 3 ist Außen Aktiv 
-                    \begin{Lemma}
-                        Ein Knoten p heißt Außen Aktiv, wärend der Bearbeitung von w, genau dan wenn $L(p) < DFI(w)$ oder wenn $L(q) < DFI (w)$, wobei q das erste Element der
-                        AdjacencyList von p ist.
-                    \end{Lemma}
-                \end{subfigure}
-                \begin{subfigure}{.48\textwidth}
-                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
-                        edge_style/.style={draw=black}]
-                        \tikzset{activ/.style={rectangle}}
-                        \tikzset{red node/.style={fill=red}}
-
-                        \node (v1) at (0,0){0'};
-                        \node (v2) at (0,1){1};
-                        \draw (v1) edge (v2){};
-                        \node (v3)[red node]  at (0,2){1'};
-                        \node (v4)[activ] at (0,3){2};
-                        \node (v5) at (1,4){4};
-                        \draw (v3) edge (v4){};
-                        \draw (v4)[bend left] edge (v5){};
-                        \draw (v3) edge (v5){};
-                        \node (v6) at (0,5){2'};
-                        \node (v7) at (0,6){3};
-                        \draw (v6) edge (v7){};
-                        \draw (v1) edge[dashed,bend left] (v7){};
-                    \end{tikzpicture}
-                \end{subfigure}
-            \end{figure}
-        }
-        \only<5>{
-            \begin{figure}
-                \begin{subfigure}{.5\textwidth}
-                    \underbar{p = 4:}\\
-                        $L(p) < 1 \Leftrightarrow 2 < 1$\\
-                        AdjacencyList von 4 ist leer\\
-                        $\Rightarrow$ 4 ist nicht außen Aktiv
-                    \begin{Lemma}
-                        Ein Knoten p heißt Außen Aktiv, wärend der Bearbeitung von w, genau dan wenn $L(p) < DFI(w)$ oder wenn $L(q) < DFI (w)$, wobei q das erste Element der
-                        AdjacencyList von p ist.
-                    \end{Lemma}
-                \end{subfigure}
-                \begin{subfigure}{.48\textwidth}
-                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
-                        edge_style/.style={draw=black}]
-                        \tikzset{activ/.style={rectangle}}
-                        \tikzset{red node/.style={fill=red}}
-
-                        \node (v1) at (0,0){0'};
-                        \node (v2) at (0,1){1};
-                        \draw (v1) edge (v2){};
-                        \node (v3)[red node]  at (0,2){1'};
-                        \node (v4)[activ] at (0,3){2};
-                        \node (v5) at (1,4){4};
-                        \draw (v3) edge (v4){};
-                        \draw (v4)[bend left] edge (v5){};
-                        \draw (v3) edge (v5){};
-                        \node (v6) at (0,5){2'};
-                        \node (v7)[activ] at (0,6){3};
-                        \draw (v6) edge (v7){};
-                        \draw (v1) edge[dashed,bend left] (v7){};
-                    \end{tikzpicture}
-                \end{subfigure}
-            \end{figure}
-        }
-    
-    \end{frame}
-
-    \begin{frame}
-        \frametitle{Der Algorithmus}
-        \begin{enumerate}
-            \item Erstelle den Palmtree zu G
-            \item Berechne die Lowpoint-Werte der Knoten
-            \item Erstelle für alle Knoten v eine AdjacencyList, welche die Kinder von v sortiert nach Lowpoint enthält 
-            \item Erstelle für alle Kanten e des DFS-Baums eine Bikomponente B und bette e in diese ein
-        \end{enumerate}
-    \end{frame}
-
-    \subsection{Die Datenstruktur}
-    %17
     \begin{frame}
         \frametitle{Die Datenstruktur}
         \only<1>{
@@ -1764,6 +1066,628 @@
             
     \end{frame}
 
+    \begin{frame}
+        \frametitle{Der Einbettungsalgorithmus}
+        \begin{enumerate}
+            \item Erstelle einen Palmtree des Eingabegraphens $G$
+            \item Für alle Knoten $v$ des Graphens, in inverser DFI Ordnung:
+            \item \; Für alle Kanten $e$, die $v$ mit einem DFS Nachkommen verbinden:
+            \item \; \; Führe $WalkUp(e)$ aus
+            \item \; Führe auf den Graphen, der durch die Pfade aus Schritt 4 induziert wird, $WalkDown$ aus  
+        \end{enumerate}
+    \end{frame}
+
+    \begin{frame}
+        \frametitle{Palmtree}
+        \centering
+        \only<1>{
+            \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
+                edge_style/.style={draw=black}]
+                \node (v1) at (1, 0) {};
+                \node (v2) at (0, 1) {};
+                \node (v3) at (0, 2) {};
+                \node (v4) at (1, 3) {};
+                \node (v5) at (2, 2) {};
+                \node (v6) at (2, 1) {};
+                \draw (v1) edge (v2) {};
+                \draw (v1) edge (v5) {};
+                \draw (v1) edge (v4) {};
+                \draw (v1) edge (v3) {};
+                \draw (v1) edge (v6) {};
+                \draw (v2) edge (v3) {};
+                \draw (v2) edge (v4) {};
+                \draw (v2) edge (v5) {};
+                \draw (v3) edge (v4) {};
+                \draw (v4) edge (v5) {};
+                \draw (v5) edge (v6) {};
+            \end{tikzpicture}
+        }
+        \only<2>{
+            \begin{figure}
+                \centering
+                \begin{subfigure}{.5\textwidth}
+                    \centering
+                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
+                        edge_style/.style={draw=black}]
+                        \tikzset{red edge/.style={draw=red}}
+                        \tikzset{red node/.style={fill=red}}
+                        \node (v1)[red node] at (1, 0) {0};
+                        \node (v2) at (0, 1) {};
+                        \node (v3) at (0, 2) {};
+                        \node (v4) at (1, 3) {};
+                        \node (v5) at (2, 2) {};
+                        \node (v6) at (2, 1) {};
+                        \draw (v1) edge (v2) {};
+                        \draw (v1) edge (v5) {};
+                        \draw (v1) edge (v4) {};
+                        \draw (v1) edge (v3) {};
+                        \draw (v1) edge (v6) {};
+                        \draw (v2) edge (v3) {};
+                        \draw (v2) edge (v4) {};
+                        \draw (v2) edge (v5) {};
+                        \draw (v3) edge (v4) {};
+                        \draw (v4) edge (v5) {};
+                        \draw (v5) edge (v6) {};
+                    \end{tikzpicture}
+                \end{subfigure}
+                \begin{subfigure}{.48\textwidth}
+                    \centering
+                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
+                        edge_style/.style={draw=black}]
+                        \node (v1) at (0,1) {0};
+                    \end{tikzpicture}
+                \end{subfigure}
+            \end{figure}
+        }
+        \only<3>{
+            \begin{figure}
+                \begin{subfigure}{.5\textwidth}
+                    \centering
+                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
+                        edge_style/.style={draw=black}]
+                        \tikzset{red edge/.style={draw=red}}
+                        \tikzset{red node/.style={fill=red}}
+                        \node (v1)[red node] at (1, 0) {0};
+                        \node (v2)[red node] at (0, 1) {1};
+                        \node (v3) at (0, 2) {};
+                        \node (v4) at (1, 3) {};
+                        \node (v5) at (2, 2) {};
+                        \node (v6) at (2, 1) {};
+                        \draw (v1)[red edge] edge (v2) {};
+                        \draw (v1) edge (v5) {};
+                        \draw (v1) edge (v4) {};
+                        \draw (v1) edge (v3) {};
+                        \draw (v1) edge (v6) {};
+                        \draw (v2) edge (v3) {};
+                        \draw (v2) edge (v4) {};
+                        \draw (v2) edge (v5) {};
+                        \draw (v3) edge (v4) {};
+                        \draw (v4) edge (v5) {};
+                        \draw (v5) edge (v6) {};
+                    \end{tikzpicture}
+                \end{subfigure}
+                \begin{subfigure}{.48\textwidth}
+                    \centering
+                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
+                        edge_style/.style={draw=black}]
+                        \node (v1) at (0,0) {0};
+                        \node (v2) at (0,1) {1};
+                        \draw (v1)[green] edge (v2) {};
+                    \end{tikzpicture}
+                \end{subfigure}
+            \end{figure}
+        }
+        \only<4>{
+            \begin{figure}
+                \begin{subfigure}{.5\textwidth}
+                    \centering
+                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
+                        edge_style/.style={draw=black}]
+                        \tikzset{red edge/.style={draw=red}}
+                        \tikzset{red node/.style={fill=red}}
+                        \node (v1)[red node] at (1, 0) {0};
+                        \node (v2)[red node] at (0, 1) {1};
+                        \node (v3) at (0, 2) {};
+                        \node (v4) at (1, 3) {};
+                        \node (v5)[red node] at (2, 2) {2};
+                        \node (v6) at (2, 1) {};
+                        \draw (v1)[red edge] edge (v2) {};
+                        \draw (v1) edge (v5) {};
+                        \draw (v1) edge (v4) {};
+                        \draw (v1) edge (v3) {};
+                        \draw (v1) edge (v6) {};
+                        \draw (v2) edge (v3) {};
+                        \draw (v2) edge (v4) {};
+                        \draw (v2)[red edge] edge (v5) {};
+                        \draw (v3) edge (v4) {};
+                        \draw (v4) edge (v5) {};
+                        \draw (v5) edge (v6) {};
+                    \end{tikzpicture}
+                \end{subfigure}
+                \begin{subfigure}{.48\textwidth}
+                    \centering
+                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
+                        edge_style/.style={draw=black}]
+                        \node (v1) at (0,0) {0};
+                        \node (v2) at (0,1) {1};
+                        \node (v3) at (0,2) {2};
+                        \draw (v1)[green] edge (v2) {};
+                        \draw (v2)[red] edge (v3) {};
+                    \end{tikzpicture}
+                \end{subfigure}
+            \end{figure}
+        }
+        \only<5>{
+            \begin{figure}
+                \begin{subfigure}{.5\textwidth}
+                    \centering
+                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
+                        edge_style/.style={draw=black}]
+                        \tikzset{red edge/.style={draw=red}}
+                        \tikzset{red node/.style={fill=red}}
+                        \node (v1)[red node] at (1, 0) {0};
+                        \node (v2)[red node] at (0, 1) {1};
+                        \node (v3) at (0, 2) {};
+                        \node (v4)[red node] at (1, 3) {3};
+                        \node (v5)[red node] at (2, 2) {2};
+                        \node (v6) at (2, 1) {};
+                        \draw (v1)[red edge] edge (v2) {};
+                        \draw (v1) edge (v5) {};
+                        \draw (v1) edge (v4) {};
+                        \draw (v1) edge (v3) {};
+                        \draw (v1) edge (v6) {};
+                        \draw (v2) edge (v3) {};
+                        \draw (v2) edge (v4) {};
+                        \draw (v2)[red edge] edge (v5) {};
+                        \draw (v3) edge (v4) {};
+                        \draw (v4)[red edge] edge (v5) {};
+                        \draw (v5) edge (v6) {};
+                    \end{tikzpicture}
+                \end{subfigure}
+                \begin{subfigure}{.48\textwidth}
+                    \centering
+                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
+                        edge_style/.style={draw=black}]
+                        \node (v1) at (0,0) {0};
+                        \node (v2) at (0,1) {1};
+                        \node (v3) at (0,2) {2};
+                        \node (v4) at (0,3) {3};
+                        \draw (v1)[green] edge (v2) {};
+                        \draw (v2)[red] edge (v3) {};
+                        \draw (v3)[blue] edge (v4) {};
+                    \end{tikzpicture}
+                \end{subfigure}
+            \end{figure}
+        }
+        \only<6>{
+            \begin{figure}
+                \begin{subfigure}{.5\textwidth}
+                    \centering
+                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
+                        edge_style/.style={draw=black}]
+                        \tikzset{red edge/.style={draw=red}}
+                        \tikzset{red node/.style={fill=red}}
+                        \node (v1)[red node] at (1, 0) {0};
+                        \node (v2)[red node] at (0, 1) {1};
+                        \node (v3)[red node] at (0, 2) {4};
+                        \node (v4)[red node] at (1, 3) {3};
+                        \node (v5)[red node] at (2, 2) {2};
+                        \node (v6) at (2, 1) {};
+                        \draw (v1)[red edge] edge (v2) {};
+                        \draw (v1) edge (v5) {};
+                        \draw (v1) edge (v4) {};
+                        \draw (v1) edge (v3) {};
+                        \draw (v1) edge (v6) {};
+                        \draw (v2) edge (v3) {};
+                        \draw (v2) edge (v4) {};
+                        \draw (v2)[red edge] edge (v5) {};
+                        \draw (v3)[red edge] edge (v4) {};
+                        \draw (v4)[red edge] edge (v5) {};
+                        \draw (v5) edge (v6) {};
+                    \end{tikzpicture}
+                \end{subfigure}
+                \begin{subfigure}{.48\textwidth}
+                    \centering
+                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
+                        edge_style/.style={draw=black}]
+                        \node (v1) at (0,0) {0};
+                        \node (v2) at (0,1) {1};
+                        \node (v3) at (0,2) {2};
+                        \node (v4) at (0,3) {3};
+                        \node (v5) at (0,4) {4};
+                        \draw (v1)[green] edge (v2) {};
+                        \draw (v2)[red] edge (v3) {};
+                        \draw (v3)[blue] edge (v4) {};
+                        \draw (v4)[yellow] edge (v5) {};
+                    \end{tikzpicture}
+                \end{subfigure}
+            \end{figure}
+        }
+        \only<7>{
+            \begin{figure}
+                \begin{subfigure}{.5\textwidth}
+                    \centering
+                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
+                        edge_style/.style={draw=black}]
+                        \tikzset{red edge/.style={draw=red}}
+                        \tikzset{red node/.style={fill=red}}
+                        \node (v1)[red node] at (1, 0) {0};
+                        \node (v2)[red node] at (0, 1) {1};
+                        \node (v3)[red node] at (0, 2) {4};
+                        \node (v4)[red node] at (1, 3) {3};
+                        \node (v5)[red node] at (2, 2) {2};
+                        \node (v6)[red node] at (2, 1) {5};
+                        \draw (v1)[red edge] edge (v2) {};
+                        \draw (v1) edge (v5) {};
+                        \draw (v1) edge (v4) {};
+                        \draw (v1) edge (v3) {};
+                        \draw (v1) edge (v6) {};
+                        \draw (v2) edge (v3) {};
+                        \draw (v2) edge (v4) {};
+                        \draw (v2)[red edge] edge (v5) {};
+                        \draw (v3)[red edge] edge (v4) {};
+                        \draw (v4)[red edge] edge (v5) {};
+                        \draw (v5)[red edge] edge (v6) {};
+                    \end{tikzpicture}
+                \end{subfigure}
+                \begin{subfigure}{.48\textwidth}
+                    \centering
+                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
+                        edge_style/.style={draw=black}]
+                        \node (v1) at (0,0) {0};
+                        \node (v2) at (0,1) {1};
+                        \node (v3) at (0,2) {2};
+                        \node (v4) at (0,3) {3};
+                        \node (v5) at (0,4) {4};
+                        \node (v6) at (1,3) {5};
+                        \draw (v1)[green] edge (v2) {};
+                        \draw (v2)[red] edge (v3) {};
+                        \draw (v3)[blue] edge (v4) {};
+                        \draw (v4)[yellow] edge (v5) {};
+                        \draw (v3)[pink] edge (v6) {};
+                    \end{tikzpicture}
+                \end{subfigure}
+            \end{figure}
+        }
+        \only<8>{
+            \begin{figure}
+                \begin{subfigure}{.5\textwidth}
+                    \centering
+                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
+                        edge_style/.style={draw=black}]
+                        \tikzset{red edge/.style={draw=red}}
+                        \tikzset{green edge/.style={draw=green}}
+                        \tikzset{red node/.style={fill=red}}
+                        \node (v1)[red node] at (1, 0) {0};
+                        \node (v2)[red node] at (0, 1) {1};
+                        \node (v3)[red node] at (0, 2) {4};
+                        \node (v4)[red node] at (1, 3) {3};
+                        \node (v5)[red node] at (2, 2) {2};
+                        \node (v6)[red node] at (2, 1) {5};
+                        \draw (v1)[red edge] edge (v2) {};
+                        \draw (v1)[green edge] edge (v5) {};
+                        \draw (v1) edge (v4) {};
+                        \draw (v1) edge (v3) {};
+                        \draw (v1) edge (v6) {};
+                        \draw (v2) edge (v3) {};
+                        \draw (v2) edge (v4) {};
+                        \draw (v2)[red edge] edge (v5) {};
+                        \draw (v3)[red edge] edge (v4) {};
+                        \draw (v4)[red edge] edge (v5) {};
+                        \draw (v5)[red edge] edge (v6) {};
+                    \end{tikzpicture}
+                \end{subfigure}
+                \begin{subfigure}{.48\textwidth}
+                    \centering
+                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
+                        edge_style/.style={draw=black}]
+                        \node (v1) at (0,0) {0};
+                        \node (v2) at (0,1) {1};
+                        \node (v3) at (0,2) {2};
+                        \node (v4) at (0,3) {3};
+                        \node (v5) at (0,4) {4};
+                        \node (v6) at (1,3) {5};
+                        \draw (v1)[green] edge (v2) {};
+                        \draw (v2)[green] edge (v3) {};
+                        \draw (v3)[blue] edge (v4) {};
+                        \draw (v4)[yellow] edge (v5) {};
+                        \draw (v3)[pink] edge (v6) {};
+                        \draw (v1)[bend right, green] edge (v3) {};
+                    \end{tikzpicture}
+                \end{subfigure}
+            \end{figure}
+        }
+        \only<9>{
+            \begin{figure}
+                \begin{subfigure}{.5\textwidth}
+                    \centering
+                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
+                        edge_style/.style={draw=black}]
+                        \tikzset{red edge/.style={draw=red}}
+                        \tikzset{green edge/.style={draw=green}}
+                        \tikzset{red node/.style={fill=red}}
+                        \node (v1)[red node] at (1, 0) {0};
+                        \node (v2)[red node] at (0, 1) {1};
+                        \node (v3)[red node] at (0, 2) {4};
+                        \node (v4)[red node] at (1, 3) {3};
+                        \node (v5)[red node] at (2, 2) {2};
+                        \node (v6)[red node] at (2, 1) {5};
+                        \draw (v1)[red edge] edge (v2) {};
+                        \draw (v1)[green edge] edge (v5) {};
+                        \draw (v1)[green edge] edge (v4) {};
+                        \draw (v1) edge (v3) {};
+                        \draw (v1) edge (v6) {};
+                        \draw (v2) edge (v3) {};
+                        \draw (v2) edge (v4) {};
+                        \draw (v2)[red edge] edge (v5) {};
+                        \draw (v3)[red edge] edge (v4) {};
+                        \draw (v4)[red edge] edge (v5) {};
+                        \draw (v5)[red edge] edge (v6) {};
+                    \end{tikzpicture}
+                \end{subfigure}
+                \begin{subfigure}{.48\textwidth}
+                    \centering
+                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
+                        edge_style/.style={draw=black}]
+                        \node (v1) at (0,0) {0};
+                        \node (v2) at (0,1) {1};
+                        \node (v3) at (0,2) {2};
+                        \node (v4) at (0,3) {3};
+                        \node (v5) at (0,4) {4};
+                        \node (v6) at (1,3) {5};
+                        \draw (v1)[green] edge (v2) {};
+                        \draw (v2)[green] edge (v3) {};
+                        \draw (v3)[green] edge (v4) {};
+                        \draw (v4)[yellow] edge (v5) {};
+                        \draw (v3)[pink] edge (v6) {};
+                        \draw (v1)[bend right, green] edge (v3) {};
+                        \draw (v1)[bend left, green] edge (v4) {};
+                    \end{tikzpicture}
+                \end{subfigure}
+            \end{figure}
+        }
+        \only<10>{
+            \begin{figure}
+                \begin{subfigure}{.5\textwidth}
+                    \centering
+                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
+                        edge_style/.style={draw=black}]
+                        \tikzset{red edge/.style={draw=red}}
+                        \tikzset{green edge/.style={draw=green}}
+                        \tikzset{red node/.style={fill=red}}
+                        \node (v1)[red node] at (1, 0) {0};
+                        \node (v2)[red node] at (0, 1) {1};
+                        \node (v3)[red node] at (0, 2) {4};
+                        \node (v4)[red node] at (1, 3) {3};
+                        \node (v5)[red node] at (2, 2) {2};
+                        \node (v6)[red node] at (2, 1) {5};
+                        \draw (v1)[red edge] edge (v2) {};
+                        \draw (v1)[green edge] edge (v5) {};
+                        \draw (v1)[green edge] edge (v4) {};
+                        \draw (v1)[green edge] edge (v3) {};
+                        \draw (v1) edge (v6) {};
+                        \draw (v2) edge (v3) {};
+                        \draw (v2) edge (v4) {};
+                        \draw (v2)[red edge] edge (v5) {};
+                        \draw (v3)[red edge] edge (v4) {};
+                        \draw (v4)[red edge] edge (v5) {};
+                        \draw (v5)[red edge] edge (v6) {};
+                    \end{tikzpicture}
+                \end{subfigure}
+                \begin{subfigure}{.48\textwidth}
+                    \centering
+                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
+                        edge_style/.style={draw=black}]
+                        \node (v1) at (0,0) {0};
+                        \node (v2) at (0,1) {1};
+                        \node (v3) at (0,2) {2};
+                        \node (v4) at (0,3) {3};
+                        \node (v5) at (0,4) {4};
+                        \node (v6) at (1,3) {5};
+                        \draw (v1)[green] edge (v2) {};
+                        \draw (v2)[green] edge (v3) {};
+                        \draw (v3)[green] edge (v4) {};
+                        \draw (v4)[green] edge (v5) {};
+                        \draw (v3)[pink] edge (v6) {};
+                        \draw (v1)[bend right, green] edge (v3) {};
+                        \draw (v1)[bend left, green] edge (v4) {};
+                        \draw (v1)[bend left, green] edge (v5) {};
+                    \end{tikzpicture}
+                \end{subfigure}
+            \end{figure}
+        }
+        \only<11>{
+            \begin{figure}
+                \begin{subfigure}{.5\textwidth}
+                    \centering
+                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
+                        edge_style/.style={draw=black}]
+                        \tikzset{red edge/.style={draw=red}}
+                        \tikzset{green edge/.style={draw=green}}
+                        \tikzset{red node/.style={fill=red}}
+                        \node (v1)[red node] at (1, 0) {0};
+                        \node (v2)[red node] at (0, 1) {1};
+                        \node (v3)[red node] at (0, 2) {4};
+                        \node (v4)[red node] at (1, 3) {3};
+                        \node (v5)[red node] at (2, 2) {2};
+                        \node (v6)[red node] at (2, 1) {5};
+                        \draw (v1)[red edge] edge (v2) {};
+                        \draw (v1)[green edge] edge (v5) {};
+                        \draw (v1)[green edge] edge (v4) {};
+                        \draw (v1)[green edge] edge (v3) {};
+                        \draw (v1)[green edge] edge (v6) {};
+                        \draw (v2) edge (v3) {};
+                        \draw (v2) edge (v4) {};
+                        \draw (v2)[red edge] edge (v5) {};
+                        \draw (v3)[red edge] edge (v4) {};
+                        \draw (v4)[red edge] edge (v5) {};
+                        \draw (v5)[red edge] edge (v6) {};
+                    \end{tikzpicture}
+                \end{subfigure}
+                \begin{subfigure}{.48\textwidth}
+                    \centering
+                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
+                        edge_style/.style={draw=black}]
+                        \node (v1) at (0,0) {0};
+                        \node (v2) at (0,1) {1};
+                        \node (v3) at (0,2) {2};
+                        \node (v4) at (0,3) {3};
+                        \node (v5) at (0,4) {4};
+                        \node (v6) at (1,3) {5};
+                        \draw (v1)[green] edge (v2) {};
+                        \draw (v2)[green] edge (v3) {};
+                        \draw (v3)[green] edge (v4) {};
+                        \draw (v4)[green] edge (v5) {};
+                        \draw (v3)[green] edge (v6) {};
+                        \draw (v1)[bend right, green] edge (v3) {};
+                        \draw (v1)[bend left, green] edge (v4) {};
+                        \draw (v1)[bend left, green] edge (v5) {};
+                        \draw (v1)[bend right, green] edge (v6) {};
+                    \end{tikzpicture}
+                \end{subfigure}
+            \end{figure}
+        }
+        \only<12>{
+            \begin{figure}
+                \begin{subfigure}{.5\textwidth}
+                    \centering
+                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
+                        edge_style/.style={draw=black}]
+                        \tikzset{red edge/.style={draw=red}}
+                        \tikzset{green edge/.style={draw=green}}
+                        \tikzset{red node/.style={fill=red}}
+                        \node (v1)[red node] at (1, 0) {0};
+                        \node (v2)[red node] at (0, 1) {1};
+                        \node (v3)[red node] at (0, 2) {4};
+                        \node (v4)[red node] at (1, 3) {3};
+                        \node (v5)[red node] at (2, 2) {2};
+                        \node (v6)[red node] at (2, 1) {5};
+                        \draw (v1)[red edge] edge (v2) {};
+                        \draw (v1)[green edge] edge (v5) {};
+                        \draw (v1)[green edge] edge (v4) {};
+                        \draw (v1)[green edge] edge (v3) {};
+                        \draw (v1)[green edge] edge (v6) {};
+                        \draw (v2)[green edge] edge (v3) {};
+                        \draw (v2) edge (v4) {};
+                        \draw (v2)[red edge] edge (v5) {};
+                        \draw (v3)[red edge] edge (v4) {};
+                        \draw (v4)[red edge] edge (v5) {};
+                        \draw (v5)[red edge] edge (v6) {};
+                    \end{tikzpicture}
+                \end{subfigure}
+                \begin{subfigure}{.48\textwidth}
+                    \centering
+                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
+                        edge_style/.style={draw=black}]
+                        \node (v1) at (0,0) {0};
+                        \node (v2) at (0,1) {1};
+                        \node (v3) at (0,2) {2};
+                        \node (v4) at (0,3) {3};
+                        \node (v5) at (0,4) {4};
+                        \node (v6) at (1,3) {5};
+                        \draw (v1)[green] edge (v2) {};
+                        \draw (v2)[green] edge (v3) {};
+                        \draw (v3)[green] edge (v4) {};
+                        \draw (v4)[green] edge (v5) {};
+                        \draw (v3)[green] edge (v6) {};
+                        \draw (v1)[bend right, green] edge (v3) {};
+                        \draw (v1)[bend left, green] edge (v4) {};
+                        \draw (v1)[bend left, green] edge (v5) {};
+                        \draw (v1)[bend right, green] edge (v6) {};
+                        \draw (v2)[bend left, green] edge (v5) {};
+                    \end{tikzpicture}
+                \end{subfigure}
+            \end{figure}
+        }
+        \only<13>{
+            \begin{figure}
+                \begin{subfigure}{.5\textwidth}
+                    \centering
+                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!50,inner sep=0pt, minimum width=4pt},
+                        edge_style/.style={draw=black}]
+                        \tikzset{red edge/.style={draw=red}}
+                        \tikzset{green edge/.style={draw=green}}
+                        \tikzset{red node/.style={fill=red}}
+                        \node (v1)[red node] at (1, 0) {0};
+                        \node (v2)[red node] at (0, 1) {1};
+                        \node (v3)[red node] at (0, 2) {4};
+                        \node (v4)[red node] at (1, 3) {3};
+                        \node (v5)[red node] at (2, 2) {2};
+                        \node (v6)[red node] at (2, 1) {5};
+                        \draw (v1)[red edge] edge (v2) {};
+                        \draw (v1)[green edge] edge (v5) {};
+                        \draw (v1)[green edge] edge (v4) {};
+                        \draw (v1)[green edge] edge (v3) {};
+                        \draw (v1)[green edge] edge (v6) {};
+                        \draw (v2)[green edge] edge (v3) {};
+                        \draw (v2)[green edge] edge (v4) {};
+                        \draw (v2)[red edge] edge (v5) {};
+                        \draw (v3)[red edge] edge (v4) {};
+                        \draw (v4)[red edge] edge (v5) {};
+                        \draw (v5)[red edge] edge (v6) {};
+                    \end{tikzpicture}
+                \end{subfigure}
+                \begin{subfigure}{.48\textwidth}
+                    \centering
+                    \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
+                        edge_style/.style={draw=black}]
+                        \node (v1) at (0,0) {0};
+                        \node (v2) at (0,1) {1};
+                        \node (v3) at (0,2) {2};
+                        \node (v4) at (0,3) {3};
+                        \node (v5) at (0,4) {4};
+                        \node (v6) at (1,3) {5};
+                        \draw (v1)[green] edge (v2) {};
+                        \draw (v2)[green] edge (v3) {};
+                        \draw (v3)[green] edge (v4) {};
+                        \draw (v4)[green] edge (v5) {};
+                        \draw (v3)[green] edge (v6) {};
+                        \draw (v1)[bend right, green] edge (v3) {};
+                        \draw (v1)[bend left, green] edge (v4) {};
+                        \draw (v1)[bend left, green] edge (v5) {};
+                        \draw (v1)[bend right, green] edge (v6) {};
+                        \draw (v2)[bend left, green] edge (v5) {};
+                        \draw (v2)[bend left, green] edge (v4) {};
+                    \end{tikzpicture}
+                \end{subfigure}
+            \end{figure}
+        }
+    \end{frame}
+
+    %19
+    \begin{frame}
+        \frametitle{Außen Aktive Knoten}
+        %\begin{Definition}
+        %    Betrachten wir einen Knoten v, so heißt ein Nachkomme w von v, außenaktiv, wenn es einen Pfad aus mehreren Nachkommen von w 
+        %    gibt ,dessen Knoten nicht mit v und w in einer Bikomponente liegen, und einer Backedge, der zu einem Vorfahren von v führt
+        %\end{Definition}
+        \centering
+        \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
+            edge_style/.style={draw=black}]
+            \tikzset{activ/.style={rectangle}}
+            \tikzset{red node/.style={fill=red}}
+
+            \node (v1) at (0,0){0'};
+            \node (v2) at (0,1){1};
+            \draw (v1) edge (v2){};
+            \node (v3)[red node]  at (0,2){1'};
+            \node (v4)[activ] at (0,3){2};
+            \node (v5) at (1,4){4};
+            \draw (v3) edge (v4){};
+            \draw (v4)[bend left] edge (v5){};
+            \draw (v3) edge (v5){};
+            \node (v6) at (0,5){2'};
+            \node (v7)[activ] at (0,6){3};
+            \draw (v6) edge (v7){};
+            \draw (v1) edge[dashed,bend left] (v7){};
+        \end{tikzpicture}
+        
+    
+    \end{frame}
+
+    %17
+    
+
     %18
     \begin{frame}
         \frametitle{Zusammenfügen von Bikomponenten}
@@ -1884,19 +1808,6 @@
         
     \end{frame}
 
-    \begin{frame}
-        \frametitle{Der Algorithmus}
-        \begin{enumerate}
-            \item Erstelle den Palmtree zu G
-            \item Berechne die Lowpoint-Werte der Knoten
-            \item Erstelle für alle Knoten v eine AdjacencyList, welche die Kinder von v sortiert nach Lowpoint enthält 
-            \item Erstelle für alle Kanten e des DFS-Baums eine Bikomponente B und bette e in diese ein
-            \item Für alle Knoten v in inverser DFI-Ordnung:
-            \item \; Performe für alle Kanten, die von einem DFS Nachkommen \\ \; von w nach v führen WalkUp
-        \end{enumerate}
-    \end{frame}
-
-    \subsection{WalkUp, WalkDown}
     %21
     \begin{frame}
         \frametitle{WalkUp}
@@ -1911,7 +1822,7 @@
                   Wird eine Wurzel aus Zwei Außenaktiven Bikomponenten, oder aus zwei Richtungen beschritten, müssen zwei Pfade über die außen liegenden Knoten gefunden werden  
             }
             \only<4>{
-                    Eine Außen Aktive Wurzel, die nicht durch die Bikomp aus der man kommt außenaktiv ist, darf nur von einer Richtung aus beschritten werden  
+                    Eine Außen Aktive Wurzel, die nicht nur durch die Bikomp aus der man kommt außenaktiv ist, darf nur von einer Richtung aus beschritten werden  
             }
                             
         \end{subfigure}     
@@ -1986,6 +1897,34 @@
                     \draw (v3) edge[dashed,bend left, red] (v7){};
                     \draw (v3) edge[dashed,bend right=45, red] (v9){};
                     \draw (v7) edge[bend right, dashed] (v1){};
+                    \draw (v1) edge[bend right=41, dashed] (v9){};
+                    \node (v10) at [activ] (1,3){5};
+                    \draw (v10) edge [bend left] (v4){};
+                    \draw (10) edge [dashed, bend right] (v1){};
+    
+                \end{tikzpicture}
+            }
+            \only<5>{
+                \begin{tikzpicture}[every node/.style={circle, draw, fill=black!10,inner sep=0pt, minimum width=9pt},
+                    edge_style/.style={draw=black}]
+                    \tikzset{activ/.style={rectangle}}
+                    \tikzset{red node/.style={fill=red}}
+        
+                    \node (v1) at (0,0){0};
+                    \node (v2) at (0,1){1};
+                    \draw (v1) edge (v2){};
+                    \node (v3)[red node] at (0,2){1};
+                    \node (v4)[activ] at (0,3){2};
+                    \draw (v3) edge (v4){};
+                    \node (v6) at (0,4){2};
+                    \node (v8) at (1,4){2};
+                    \node (v9)[activ] at (1,5){4};
+                    \draw (v8) edge (v9){};
+                    \node (v7)[activ] at (0,5){3};
+                    \draw (v6) edge (v7){};
+                    \draw (v3) edge[dashed,bend left, red] (v7){};
+                    \draw (v3) edge[dashed,bend right=45, red] (v9){};
+                    \draw (v7) edge[bend right, dashed] (v1){};
                     \draw (v1) edge[bend right=35, dashed] (v9){};
     
                 \end{tikzpicture}
@@ -1993,35 +1932,16 @@
         \end{subfigure}      
         \end{figure}
     \end{frame}
-
-    \begin{frame}
-        \frametitle{Relevante Bikomponente}
-            \begin{Definition}
-                Eine Bikomponente heißt relevent, wenn man wärend des WalkUps aus ihr herausgetreten ist
-            \end{Definition}
-    \end{frame}
+    
     %22
-    \begin{frame}
-        \frametitle{Der Algorithmus}
-        \begin{enumerate}
-            \item Erstelle den Palmtree zu G
-            \item Berechne die Lowpoint-Werte der Knoten
-            \item Erstelle für alle Knoten v eine AdjacencyList, welche die Kinder von v sortiert nach Lowpoint enthält 
-            \item Erstelle für alle Kanten e des DFS-Baums eine Bikomponente B und bette e in diese ein
-            \item Für alle Knoten v in inverser DFI-Ordnung:
-            \item \; Performe für alle Kanten, die von einem DFS Nachkommen \\ \; von w nach v führen WalkUp
-            \item Performe für die gefundenen Pfade WalkDown
-        \end{enumerate}
-    \end{frame}
-
     \begin{frame}
         \frametitle{Walk Down}
             Performe DFS auf den Graphen, der durch die Pfade aus dem WalkUp induziert wird\\
         \underbar{Beachte jedoch}\\
         \begin{enumerate}
             \item Füge zuerst die Kante zu einbettung hinzu, die an dem Knoten anliegt, indem du gerade bist
-            \item Gibt es eine relevante Bikomponte,ohne außen aktive Knoten von der der Momentane Knoten die Wurzel ist, schreite in diese Bikomponente hinein
-            \item Gibt es eine relevante Bikomponte,mit außen aktive Knoten von der der Momentane Knoten die Wurzel ist, schreite in diese Bikomponente hinein
+            \item Gibt es eine zuvor besuchte Bikomponte,ohne außen aktive Knoten von der der Momentane Knoten die Wurzel ist, schreite in diese Bikomponente hinein
+            \item Gibt es eine zuvor besuchte Bikomponte,mit außen aktive Knoten von der der Momentane Knoten die Wurzel ist, schreite in diese Bikomponente hinein
         \end{enumerate}
         
     
@@ -2080,14 +2000,6 @@
                     \end{tikzpicture}
                 \end{subfigure}
                 \end{figure}
-    \end{frame}
-
-    %24
-    \begin{frame}
-        \frametitle{Vielen Dank für ihre Aufmersamkeit}
-    
-        
-    
     \end{frame}
 
 
